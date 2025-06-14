@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lab1.lab3_3;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,36 +62,79 @@ namespace lab1
     }
 
 
-    internal abstract class AbstractCargo : IAbstractCargo
+    internal abstract class AbstractCargo : ObservableCar, IAbstractCargo
     {
-        public double Weight { get; set; }
-        public double Length { get; set; }
-        public double MaxSpeed { get; set; }
-        public double Tonnage { get; set; }
-        public double TankVolume { get; set; }
-        public int AxlesAmount { get; set; }
+        private double _tonnage;
+        private double _tankVolume;
+        private int _axlesAmount;
+
+        public double Tonnage
+        {
+            get => _tonnage;
+            set => Set(ref _tonnage, value);
+        }
+
+        public double TankVolume
+        {
+            get => _tankVolume;
+            set => Set(ref _tankVolume, value);
+        }
+
+        public int AxlesAmount
+        {
+            get => _axlesAmount;
+            set => Set(ref _axlesAmount, value);
+        }
     }
 
-    internal abstract class AbstractVehicle : IAbstractVehicle
+    internal abstract class AbstractVehicle : ObservableCar, IAbstractVehicle
     {
-        public double Weight { get; set; }
-        public double Length { get; set; }
-        public double MaxSpeed { get; set; }
-        public WheelDrive WheelDrive { get; set; }
-        public VehicleClass Class { get; set; }
-        public string? Color { get; set; }
+        private WheelDrive _wheelDrive;
+        private VehicleClass _class;
+        private string? _color;
 
+        public WheelDrive WheelDrive
+        {
+            get => _wheelDrive;
+            set => Set(ref _wheelDrive, value);
+        }
 
+        public VehicleClass Class
+        {
+            get => _class;
+            set => Set(ref _class, value);
+        }
+
+        public string? Color
+        {
+            get => _color;
+            set => Set(ref _color, value);
+        }
     }
 
-    internal abstract class AbstractTank : IAbstractTank
+    internal abstract class AbstractTank : ObservableCar, IAbstractTank
     {
-        public double Weight { get; set; }
-        public double Length { get; set; }
-        public double MaxSpeed { get; set; }
-        public int ProjectileCaliber { get; set; }
-        public int ShotsPerMinute { get; set; }
-        public int CrewSize { get; set; }
+        private int _projectileCaliber;
+        private int _shotsPerMinute;
+        private int _crewSize;
+
+        public int ProjectileCaliber
+        {
+            get => _projectileCaliber;
+            set => Set(ref _projectileCaliber, value);
+        }
+
+        public int ShotsPerMinute
+        {
+            get => _shotsPerMinute;
+            set => Set(ref _shotsPerMinute, value);
+        }
+
+        public int CrewSize
+        {
+            get => _crewSize;
+            set => Set(ref _crewSize, value);
+        }
     }
 
 

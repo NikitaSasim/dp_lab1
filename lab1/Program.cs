@@ -1,4 +1,5 @@
 ﻿using lab1;
+using lab1.lab3_3;
 
 //partial 1
 var a = TimeStampSingleton.GetInstance();
@@ -46,5 +47,33 @@ foreach (var car in garage)
         Console.WriteLine($"MaxSpeed is {car.MaxSpeed}");
 }
 
+// lab 3_3
+
+var container = new Container();
+
+var audi = new AudiFactory().CreateCar();
+var volvo = new VolvoFactory().CreateCar();
+var abrams = new AbramsFactory().CreateCar();
+
+container.Add(audi);
+container.Add(volvo);
+container.Add(abrams);
+
+
+if (audi is IAbstractVehicle audiCar)
+{
+    audiCar.Color = "Black";
+    audiCar.MaxSpeed += 20;
+}
+
+if (volvo is IAbstractCargo volvoCargo)
+{
+    volvoCargo.Tonnage += 1;
+}
+
+if (abrams is IAbstractTank abramsTank)
+{
+    abramsTank.ShotsPerMinute += 1;
+}
 
 
