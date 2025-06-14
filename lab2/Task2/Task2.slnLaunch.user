@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "SomeEntityApi.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\SomeEntityApiClientApp\\SomeEntityApiClientApp.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
